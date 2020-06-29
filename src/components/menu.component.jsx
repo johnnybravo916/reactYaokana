@@ -1,24 +1,24 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-const Header = () => {
+const Menu = () => {
     return (
-        <header className="header">
+        <header className="overlay animate__animated">
             <Link
                 to="/"
                 title="Alyana Yaokana"
-                className="header__branding"
+                className="overlay__branding"
             >
                 <img
                     src="https://via.placeholder.com/150"
                     alt="Alyana Yaokana"
                 />
             </Link>
-            <div className="header__menubtn" title="menu">
+            <div className="overlay__menubtn" title="menu">
                 <span></span>
                 <span></span>
             </div>
-            <nav className="nav--main">
+            <nav className="nav--overlay">
                 <ul>
                     <li>
                         <Link to="/about" title="hello there">
@@ -26,7 +26,12 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/media" title="media">
+                        <Link to="/projects" title="projects">
+                            projects
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/media" title="media#">
                             media
                         </Link>
                     </li>
@@ -41,4 +46,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Menu;
