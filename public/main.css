@@ -305,7 +305,7 @@ h3 {
     align-items: center; }
     .linkgrid__linkwrap a {
       cursor: pointer;
-      font-size: 6rem;
+      font-size: 2rem;
       color: #fff; }
       .linkgrid__linkwrap a:hover {
         color: #fff;
