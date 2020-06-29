@@ -1,10 +1,15 @@
 import React from 'react';
 
-const ContactPage  = () => {
+import Banner from '../components/banner.component';
+
+const ContactPage = () => {
   return(
-    <div>
-      Contact
-    </div>
+    <>
+      <Banner title="contact" imgUrl="http://yaokana.com/wp/wp-content/themes/yaokana/images/bg-section04.jpg"/>
+      <main className="main">
+        Contact Page
+      </main>
+    </>
   )
 }
 

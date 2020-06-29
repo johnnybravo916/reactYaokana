@@ -13,15 +13,15 @@ import Contactpage from "./pages/contact";
 
 function App() {
     return (
-        <>  
+        <>
             <Grid/>
             <Header/>
             <Menu/>
             <Switch>
                 <Route exact path="/" component={Homepage} />
-                <Route path="/about" compontent={AboutPage} />
-                <Route path="/projects" compontent={ProjectsPage} />
-                <Route path="/contact" compontent={Contactpage} />
+                <Route path="/about" component={AboutPage} />
+                <Route path="/projects" component={ProjectsPage} />
+                <Route path="/contact" component={Contactpage} />
             </Switch>
             <Footer/>
         </>
