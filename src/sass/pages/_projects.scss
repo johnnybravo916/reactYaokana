@@ -4,15 +4,15 @@
 }
 
 .linkgrid{
-  padding-top:20vh;padding-left:10vw;padding-right:10vw;
+  padding-top:20vh;padding-left:10vw;padding-right:10vw;background-color:rgba($black,0.8);min-height:100vh;
   &__wrapper{
     display:grid;grid-template-columns:repeat(4, 1fr);grid-auto-rows:30vh;@include position-content;
-    &:hover a{color:$black;opacity:0.5}
+    &:hover a{color:$white;opacity:0.5}
   }
   &__linkwrap{
     text-align:center;@include center-content;
     a{
-      cursor:pointer;font-size:$fontDefault * 2;color:$white;
+      cursor:pointer;font-size:$fontDefault * 2;color:$white;padding:10px;
       &:hover{
         color:$white;text-decoration:none;opacity:1.0;
       }

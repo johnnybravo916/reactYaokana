@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+
+import axios from "axios";
+import parse from 'html-react-parser';
 
 const ProjectsPage = () => {
     const [projects, setProjects] = useState([]);
@@ -17,7 +19,7 @@ const ProjectsPage = () => {
             });
     }, []);
 
-    const setBackground = (backgroundId, index) => {
+    const setBackground = (backgroundId) => {
         const backgrounds = document.querySelectorAll(".linkgrid__background");
         for(const background of backgrounds){
             if(background.id == backgroundId){
@@ -46,12 +48,12 @@ const ProjectsPage = () => {
                 );
             })}
             <div className="linkgrid__wrapper">
-                {projects.map((project, index) => {
+            {projects.map((project, index) => {
                     return (
                         <div
                             key={index}
                             className="linkgrid__linkwrap"
-                            onMouseOver={() => setBackground(project.id, index)}
+                            onMouseOver={() => setBackground(project.id)}
                         >
                             <Link
                                 to={`/${project.slug}`}
