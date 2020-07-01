@@ -5,12 +5,12 @@ const Footer = () => {
         <footer className="footer">
             <ul className="footer__social">
                 <li>
-                    <a href="#" title="Facebook">
+                    <a href="https://www.facebook.com/" title="Facebook">
                         Facebook
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="Instagram">
+                    <a href="http://instagram.com/" title="Instagram">
                         Instagram
                     </a>
                 </li>

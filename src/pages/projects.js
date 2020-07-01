@@ -1,42 +1,64 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-const ProjectsPage = (props) => {
+const ProjectsPage = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
         let projectsUrl = "http://yaokana.com/wp-json/wp/v2/projects?_embed";
-        fetch(projectsUrl)
-            .then((projectData) => projectData.json())
-            .then((projectData) => setProjects([...projectData]));
+        axios
+            .get(projectsUrl)
+            .then((projectsData) => {
+                setProjects([...projectsData.data]);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }, []);
 
-    const getBackground = (background) => {
-        const linkgrid = document.querySelector('.linkgrid');
-        linkgrid.style.backgroundImage = `url(${background})`;
-        // too slow, will think of something else, maybe show all the images then hide/show on hover
+    const setBackground = (backgroundId, index) => {
+        const backgrounds = document.querySelectorAll(".linkgrid__background");
+        for(const background of backgrounds){
+            if(background.id == backgroundId){
+                background.style.zIndex = "-1";
+                background.classList.add('animate__fadeIn');
+            } else {
+                background.style.zIndex = "-2";;
+                background.classList.remove('animate__fadeIn');
+            }
+        }
     };
 
     return (
-        <main className="linkgrid" style={{ backgroundImage: "url('http://yaokana.com/wp/wp-content/uploads/2018/08/yaokana_watermark_FeaturedImage-1140x600.jpg')" }}>
+        <main className="linkgrid">
+            {projects.map((project, index) => {
+                return (
+                    <div
+                        key={index}
+                        id={project.id}
+                        className="linkgrid__background animate__animated"
+                        style={{
+                            backgroundImage: `url(${project._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url})`,
+                        }}
+                    >
+                    </div>
+                );
+            })}
             <div className="linkgrid__wrapper">
                 {projects.map((project, index) => {
                     return (
                         <div
                             key={index}
-                            data-img={
-                                project._embedded["wp:featuredmedia"][0]
-                                    .media_details.sizes.large.source_url
-                            }
                             className="linkgrid__linkwrap"
-                            onMouseOver={() => getBackground(project._embedded["wp:featuredmedia"][0]
-                            .media_details.sizes.large.source_url)}
+                            onMouseOver={() => setBackground(project.id, index)}
                         >
-                            <a
-                                href={project.link}
+                            <Link
+                                to={`/${project.slug}`}
                                 title={project.title.rendered}
                             >
                                 {project.title.rendered}
-                            </a>
+                            </Link>
                         </div>
                     );
                 })}

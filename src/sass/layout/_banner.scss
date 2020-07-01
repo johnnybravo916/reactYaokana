@@ -1,0 +1,7 @@
+.banner{
+  min-height:100vh;position:relative;justify-content:center;display:flex;align-items:center;background-attachment:fixed;
+  &__about{position:absolute;left:10%;top:50%;z-index:2;-webkit-text-stroke: 5px $black}
+  &__image{
+    position:absolute;bottom:-20%;border:1px solid $black;max-width:900px;
+  }
+}

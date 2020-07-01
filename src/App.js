@@ -8,10 +8,14 @@ import Footer from "./components/footer.component";
 
 import Homepage from "./pages/home";
 import AboutPage from "./pages/about";
+import MediaPage from "./pages/media";
 import ProjectsPage from "./pages/projects";
+import SinglePage from "./pages/single";
 import Contactpage from "./pages/contact";
 
-function App() {
+import "./sass/main.scss";
+
+function App() { 
     return (
         <>
             <Grid/>
@@ -20,7 +24,9 @@ function App() {
             <Switch>
                 <Route exact path="/" component={Homepage} />
                 <Route path="/about" component={AboutPage} />
+                <Route path="/media" component={MediaPage} />
                 <Route path="/projects" component={ProjectsPage} />
+                <Route path="/:slug" component={SinglePage} />
                 <Route path="/contact" component={Contactpage} />
             </Switch>
             <Footer/>

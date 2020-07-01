@@ -2,15 +2,15 @@ import React from 'react';
 
 import Banner from '../components/banner.component';
 
-const MediaPage = () => {
+const SinglePage = () => {
   return(
     <>
-      <Banner title="media" imgUrl="#" bgColor="#000"/>
+      <Banner title="Single" imgUrl="#" bgColor="#000"/>
       <main className="main media">
-        Media Page
+        Single Page
       </main>
     </>
   )
 }
 
-export default MediaPage ;
+export default SinglePage ;

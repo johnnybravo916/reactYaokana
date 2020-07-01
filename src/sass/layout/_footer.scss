@@ -1,0 +1,13 @@
+.footer{
+  &__social{
+    position:absolute;bottom:0;right:20px;z-index:10q;
+    li{
+      display:inline;
+    }
+    li a{
+      display:inline-block;margin-left:20px;font-size:0;width:35px;height:50px;vertical-align:top;background-repeat:no-repeat;
+    }
+    li:first-child a{background-image:url('../../assets/icons/fb.png')}
+    li:nth-child(2) a{background-image:url('../../assets/icons/mail.png')}
+  }
+}

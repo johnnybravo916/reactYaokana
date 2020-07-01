@@ -1,0 +1,16 @@
+@mixin position-content{
+  position:relative;
+  z-index:5;
+}
+
+@mixin vertical-text{
+  transform: rotate(-90deg)
+}
+
+@mixin center-content{
+  display:flex;justify-content:center;align-items:center
+}
+
+@mixin section-margin{
+  margin-bottom:150px
+}
