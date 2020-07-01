@@ -57,9 +57,9 @@ const ProjectsPage = () => {
                         >
                             <Link
                                 to={`/${project.slug}`}
-                                title={project.title.rendered}
+                                title= { parse(project.title.rendered) }
                             >
-                                {project.title.rendered}
+                                { parse(project.title.rendered) }
                             </Link>
                         </div>
                     );

@@ -37,7 +37,7 @@ const AboutPage = () => {
                                 <div className="row">
                                     <div className="col-md-12 about__content">
                                         <h2>Alyana Yaokana</h2>
-                                        {content.content.rendered}
+                                        { parse(content.content.rendered) }
                                     </div>
                                 </div>
                             </div>

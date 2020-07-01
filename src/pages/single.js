@@ -45,7 +45,7 @@ const SinglePage = (props) => {
                 return (
                     <React.Fragment key={index}>
                         <Banner
-                            title={project.title.rendered}
+                            title={parse(project.title.rendered)}
                             imgUrl="#"
                             bgColor="#000"
                         />
@@ -54,11 +54,11 @@ const SinglePage = (props) => {
                                 <div className="projectcontent">
                                     <div className="row">
                                         <div className="col-md-5">
-                                            <h2>{project.title.rendered}</h2>
+                                            <h2> { parse(project.title.rendered) }</h2>
                                             <h3>residential</h3>
                                         </div>
                                         <div className="col-md-6">
-                                          {project.content.rendered}
+                                          {parse(project.content.rendered)}
                                         </div>
                                     </div>
                                 </div>

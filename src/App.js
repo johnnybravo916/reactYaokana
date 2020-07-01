@@ -26,8 +26,8 @@ function App() {
                 <Route path="/about" component={AboutPage} />
                 <Route path="/media" component={MediaPage} />
                 <Route path="/projects" component={ProjectsPage} />
-                <Route path="/:slug" component={SinglePage} />
                 <Route path="/contact" component={Contactpage} />
+                <Route path="/:slug" component={SinglePage} />
             </Switch>
             <Footer/>
         </>
