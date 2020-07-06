@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 
 import Grid from "./components/grid.component";
 import Header from "./components/header.component";
-import Menu from "./components/menu.component";
 import Footer from "./components/footer.component";
 
 import Homepage from "./pages/home";
@@ -20,7 +19,6 @@ function App() {
         <>
             <Grid/>
             <Header/>
-            <Menu/>
             <Switch>
                 <Route exact path="/" component={Homepage} />
                 <Route path="/about" component={AboutPage} />

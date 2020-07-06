@@ -1,9 +1,9 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-const Menu = () => {
+const Menu = (props) => {
     return (
-        <header className="overlay animate__animated">
+        <header className={props.showMenu}>
             <Link
                 to="/"
                 title="Alyana Yaokana"
@@ -14,10 +14,6 @@ const Menu = () => {
                     alt="Alyana Yaokana"
                 />
             </Link>
-            <div className="overlay__menubtn" title="menu">
-                <span></span>
-                <span></span>
-            </div>
             <nav className="nav--overlay">
                 <ul>
                     <li>

@@ -19,3 +19,21 @@
 }
 
 .main{z-index:11;position:relative}
+
+.show{display:block!important}
+.hide{display:none!important}
+
+.btn{
+  &__menu{
+    position:fixed;z-index:10;top:20px;right:20px;cursor:pointer;
+    span{background:$salmon;width:50px;height:5px;margin-bottom:10px;display:block}
+    &.btn--active{
+      top:40px;right:20px;cursor:pointer;
+      span{
+        background:$white;width:50px;height:5px;margin-bottom:10px;display:block;
+        &:first-child{transform:rotate(45deg)}
+        &:nth-child(2){transform:rotate(-45deg);position:relative;top:-14px}
+      }
+  }
+  }
+}

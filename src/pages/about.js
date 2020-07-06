@@ -27,6 +27,7 @@ const AboutPage = () => {
                 return (
                     <React.Fragment key={index}>
                         <Banner
+                            page="about"
                             title={content.title.rendered}
                             imgUrl="#"
                             bgColor="#000"
