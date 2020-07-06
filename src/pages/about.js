@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Banner from "../components/banner.component";
+import ContactComponent from "../components/contact.component";
 
 import axios from "axios";
 import parse from "html-react-parser";
@@ -43,6 +44,7 @@ const AboutPage = () => {
                                 </div>
                             </div>
                         </main>
+                        <ContactComponent/>
                     </React.Fragment>
                 );
             })}
