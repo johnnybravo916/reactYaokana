@@ -25,7 +25,7 @@ const ProjectsPage = () => {
             ".linkgrid__background"
         );
         for (const backgroundImg of backgroundImgArray) {
-            if(+backgroundImg.id === background){
+            if (+backgroundImg.id === background) {
                 backgroundImg.style.zIndex = "-1";
                 backgroundImg.classList.add("animate__fadeIn");
             } else {
