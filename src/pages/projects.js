@@ -14,6 +14,7 @@ const ProjectsPage = () => {
             .get(projectsUrl)
             .then((projectsData) => {
                 setProjects([...projectsData.data]);
+                console.log(projectsData.data)
             })
             .catch((error) => {
                 console.log(error);
