@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 
 const ProjectsPage = () => {
     const [projects, setProjects] = useState([]);
+    const [background, setBackground] = useState(null);
 
     useEffect(() => {
         let projectsUrl = "http://yaokana.com/wp-json/wp/v2/projects?_embed";
@@ -19,18 +20,20 @@ const ProjectsPage = () => {
             });
     }, []);
 
-    const setBackground = (backgroundId) => {
-        const backgrounds = document.querySelectorAll(".linkgrid__background");
-        for(const background of backgrounds){
-            if(background.id == backgroundId){
-                background.style.zIndex = "-1";
-                background.classList.add('animate__fadeIn');
+    useEffect(() => {
+        const backgroundImgArray = document.querySelectorAll(
+            ".linkgrid__background"
+        );
+        for (const backgroundImg of backgroundImgArray) {
+            if(+backgroundImg.id === background){
+                backgroundImg.style.zIndex = "-1";
+                backgroundImg.classList.add("animate__fadeIn");
             } else {
-                background.style.zIndex = "-2";;
-                background.classList.remove('animate__fadeIn');
+                backgroundImg.style.zIndex = "-2";
+                backgroundImg.classList.remove("animate__fadeIn");
             }
         }
-    };
+    }, [background]);
 
     return (
         <main className="linkgrid">
@@ -43,12 +46,11 @@ const ProjectsPage = () => {
                         style={{
                             backgroundImage: `url(${project._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url})`,
                         }}
-                    >
-                    </div>
+                    ></div>
                 );
             })}
             <div className="linkgrid__wrapper">
-            {projects.map((project, index) => {
+                {projects.map((project, index) => {
                     return (
                         <div
                             key={index}
@@ -57,9 +59,9 @@ const ProjectsPage = () => {
                         >
                             <Link
                                 to={`/${project.slug}`}
-                                title= { parse(project.title.rendered) }
+                                title={parse(project.title.rendered)}
                             >
-                                { parse(project.title.rendered) }
+                                {parse(project.title.rendered)}
                             </Link>
                         </div>
                     );
