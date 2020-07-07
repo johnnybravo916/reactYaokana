@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Banner from "../components/banner.component";
 import ContactComponent from "../components/contact.component";
+import ProjectComponent from "../components/project.component";
 
 import axios from "axios";
 import parse from "html-react-parser";
@@ -30,21 +31,23 @@ const AboutPage = () => {
                         <Banner
                             page="about"
                             title={content.title.rendered}
-                            imgUrl="#"
+                            imgUrl={content._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url}
                             bgColor="#000"
+                            secondImgUrl = {content.acf.profile_photo}
                         />
                         <main className="main about">
-                            <h2>Interior Designer</h2>
+                            <h2>{content.acf.main_header}</h2>
                             <div className="container">
                                 <div className="row">
                                     <div className="col-md-12 about__content">
-                                        <h2>Alyana Yaokana</h2>
+                                        <h3>{content.acf.sub_header}</h3>
                                         { parse(content.content.rendered) }
                                     </div>
                                 </div>
                             </div>
                         </main>
                         <ContactComponent/>
+                        <ProjectComponent/>
                     </React.Fragment>
                 );
             })}

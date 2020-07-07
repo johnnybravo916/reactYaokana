@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const Banner = (props) => {
 
@@ -8,7 +7,7 @@ const Banner = (props) => {
       return (
         <div className="banner" style={{ backgroundImage: `url(${props.imgUrl})` }}> 
           <h1 className="banner__about">{props.title}</h1>
-          <img className="banner__image" src="#" alt="#"/>
+          <img className="banner__image" src={props.secondImgUrl} alt={props.title}/>
         </div>
       );
     case '/media':
