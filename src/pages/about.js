@@ -45,9 +45,9 @@ const AboutPage = () => {
                                     </div>
                                 </div>
                             </div>
-                        </main>
                         <ContactComponent/>
                         <ProjectComponent/>
+                        </main>
                     </React.Fragment>
                 );
             })}

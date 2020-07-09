@@ -2,6 +2,6 @@
   min-height:100vh;position:relative;justify-content:center;display:flex;align-items:center;background-attachment:fixed;background-size:cover;background-position:center center;
   &__about{position:absolute;left:10%;top:50%;z-index:2;-webkit-text-stroke: 5px $black}
   &__image{
-    position:absolute;bottom:-20%;max-width:900px;
+    position:absolute;bottom:-20%;max-width:900px;z-index:16;
   }
 }

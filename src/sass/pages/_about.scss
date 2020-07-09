@@ -1,5 +1,5 @@
 .about{
-  margin-top:300px;
+  padding-top:300px;
   .container{max-width:900px;}
   h2{color:$teal;margin-bottom:55px;}
   > h2{color:$salmon;position:absolute;left:-300px;@include vertical-text}
