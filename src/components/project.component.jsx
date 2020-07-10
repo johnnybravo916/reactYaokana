@@ -13,7 +13,7 @@ const ProjectComponent = () => {
             .get(projectsUrl)
             .then((projectsData) => {
                 setProjects([...projectsData.data]);
-                console.log(projectsData.data);
+               // console.log(projectsData.data);
             })
             .catch((error) => {
                 console.log(error);

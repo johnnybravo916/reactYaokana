@@ -18,17 +18,12 @@
   }
 }
 
-.main{z-index:15;position:relative;background:$white}
-
-.show{display:block!important}
-.hide{display:none!important}
-
 .btn{
   &__menu{
-    position:fixed;z-index:10;top:20px;right:20px;cursor:pointer;
+    position:fixed;z-index:25;top:20px;right:20px;cursor:pointer;height:50px;
     span{background:$salmon;width:50px;height:5px;margin-bottom:10px;display:block}
     &.btn--active{
-      top:40px;right:20px;cursor:pointer;
+      top:20px;right:20px;cursor:pointer;padding-top:20px;
       span{
         background:$white;width:50px;height:5px;margin-bottom:10px;display:block;
         &:first-child{transform:rotate(45deg)}
@@ -37,6 +32,11 @@
   }
   }
 }
+
+.main{z-index:15;position:relative;background:$white}
+
+.show{display:block!important}
+.hide{display:none!important}
 
 .awssld__next{right:100px}
 .awssld__prev{left:100px}

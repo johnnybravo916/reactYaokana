@@ -1,16 +1,23 @@
 
 .header{
   width:100%;height:0;position:absolute;z-index:4;
-  &__branding{
-    max-width:8%;display:block;z-index:5;position:absolute;
-    img{
-      max-width:100%;display:block;
-    }
+}
+
+.branding{
+  &__link{max-width:8%;display:block;z-index:5;position:absolute;}
+  &__svg{
+    min-width:200px;
+    .svg--a {fill: $salmon;}
+    .svg--y {fill: $teal;}
+    .svg--title {fill: $white;}
+  }
+  &--white{
+    .svg--a, .svg--y  {fill: $white;}
   }
 }
 
 .overlay{
-  position:fixed;top:0;left:0;width:100%;height:100%;z-index:9;background:$salmon;overflow-y:auto;display:none;
+  position:fixed;top:0;left:0;width:100%;height:100%;z-index:20;background:$salmon;overflow-y:auto;display:none;
   &__branding{
     display:inline-block;vertical-align:top;max-width:8%;
     img{display:block;max-width:100%}
@@ -22,5 +29,16 @@
       &:first-child{transform:rotate(45deg)}
       &:nth-child(2){transform:rotate(-45deg);position:relative;top:-14px}
     }
+  }
+  &__social{
+    position:absolute;bottom:0;right:20px;z-index:10q;
+    li{
+      display:inline;
+    }
+    li a{
+      display:inline-block;margin-left:20px;font-size:0;width:35px;height:50px;vertical-align:top;background-repeat:no-repeat;
+    }
+    li:first-child a{fill:$white}
+    li:nth-child(2) a{fill:$white}
   }
 }

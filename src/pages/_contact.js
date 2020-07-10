@@ -3,51 +3,35 @@ import React, { useEffect, useState } from "react";
 import Banner from "../components/banner.component";
 import ProjectComponent from "../components/project.component";
 
+import useInput from "../hooks/contactHook";
 import axios from "axios";
 
-const ContactPage = () => {
-    const initialState = {
-        Name: "",
-        Email: "",
-        Subject: "",
-        Message: "",
-    };
+const ContactPage = (callback) => {
     const [content, setContent] = useState([]);
-    const [userdata, setUserdata] = useState(initialState);
-    const { Name, Email, Subject, Message } = userdata;
+    const {
+        value: firstName,
+        bind: bindFirstName,
+        reset: resetFirstName,
+    } = useInput("");
+    // const { value:lastName, bind:bindLastName, reset:resetLastName } = useInput('');
 
-    const handleChange = (e) => {
-        console.log(e);
-        setUserdata({ ...userdata, [e.target.name]: e.target.value });
-        console.log(userdata);
-    };
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        alert(`Submitting Name ${firstName}`);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const emailBody = {
-            Name: userdata.Name,
-            Email: userdata.Email,
-            Subject: userdata.Subject,
-            Message: userdata.Message,
-        };
-
-        const form = new FormData();
-        for (const field in emailBody) {
-            form.append(field, emailBody[field]);
-        }
-
-        console.log(form);
         let projectsUrl =
-            "https://cors-anywhere.herokuapp.com/http://yaokana.com/wp-json/contact-form-7/v1/contact-forms/1958/feedback";
+            "https://cors-anywhere.herokuapp.com/http://yaokana.com/wp-json/contact-form-7/v1/contact-forms/49/feedback";
         axios
-            .post(projectsUrl, form)
+            .post(projectsUrl)
             .then((response) => {
-                console.log("yes ", response);
+                console.log(response);
             })
             .catch((error) => {
                 console.log(error);
             });
+
+        resetFirstName();
+        // resetLastName();
     };
 
     useEffect(() => {
@@ -86,38 +70,20 @@ const ContactPage = () => {
                                             </h2>
                                             <form onSubmit={handleSubmit}>
                                                 <input
-                                                    name="Name"
                                                     type="text"
                                                     placeholder="name"
-                                                    onChange={handleChange}
-                                                    value={Name}
+                                                    {...bindFirstName}
                                                 />
                                                 <input
-                                                    name="Email"
                                                     type="email"
                                                     placeholder="email"
-                                                    onChange={handleChange}
-                                                    value={Email}
                                                 />
-                                                <input
-                                                    name="Subject"
-                                                    type="text"
-                                                    placeholder="subject"
-                                                    onChange={handleChange}
-                                                    value={Subject}
-                                                />
-                                                <textarea
-                                                    name="Message"
-                                                    onChange={handleChange}
-                                                    value={Message}
-                                                    placeholder="message"
-                                                ></textarea>
+                                                <textarea placeholder="message"></textarea>
                                                 <input
                                                     type="submit"
                                                     value="send"
                                                 />
                                             </form>
-                                            {userdata.name}
                                         </div>
                                     </div>
                                 </div>

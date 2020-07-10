@@ -42,7 +42,7 @@ const Slider = () => {
                         className="slider__element"
                         key={index}
                         style={{
-                            backgroundImage: `url(${content._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url})`,
+                            backgroundImage: `url(${content._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url})`,
                         }}
                     >
                         <Link to={`/${content.slug}`} className="slider__title">

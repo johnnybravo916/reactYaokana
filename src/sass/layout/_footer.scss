@@ -7,7 +7,15 @@
     li a{
       display:inline-block;margin-left:20px;font-size:0;width:35px;height:50px;vertical-align:top;background-repeat:no-repeat;
     }
-    li:first-child a{background-image:url('../../assets/icons/fb.png')}
-    li:nth-child(2) a{background-image:url('../../assets/icons/mail.png')}
+    li:first-child a{fill:$salmon}
+    li:nth-child(2) a{fill:$salmon}
+  }
+  &__copyright{
+    text-align:center;padding:20px 0;font-size:$fontDefault * 0.7; color:$salmon;position:absolute;bottom:0;left:20px;z-index:10px;text-align:left;
+    a{color:$salmon;display:block;
+    &:hover{
+      color:$white;text-decoration:none;
+    }
+    }
   }
 }

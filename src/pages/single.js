@@ -31,7 +31,7 @@ const SinglePage = (props) => {
                 return (
                     <React.Fragment key={index}>
                         <Banner
-                            title={parse(project.title.rendered)}
+                            bannerTitle={parse(project.title.rendered)}
                             bgColor="#000"
                             imgUrl={
                                 project._embedded["wp:featuredmedia"][0]

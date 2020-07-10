@@ -34,9 +34,10 @@ const NextPrev = (props) => {
         <div className="latestprojects">
             <h3>projects {props.postId}</h3>
             <div className="latestprojectgrid">
-                {projects.map((project) => {
+                {projects.map((project,index) => {
                     return (
                         <Link
+                            key={index}
                             to={`/${project.slug}`}
                             className="latestprojectgrid__singleproject"
                             title={parse(project.title.rendered)}

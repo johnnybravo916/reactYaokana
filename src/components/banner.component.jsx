@@ -8,11 +8,11 @@ const Banner = (props) => {
                     className="banner"
                     style={{ backgroundImage: `url(${props.imgUrl})` }}
                 >
-                    <h1 className="banner__about">{props.title}</h1>
+                    <h1 className="banner__about">{props.bannerTitle}</h1>
                     <img
                         className="banner__image"
                         src={props.secondImgUrl}
-                        alt={props.title}
+                        alt={props.bannerTitle}
                     />
                 </div>
             );
@@ -26,7 +26,7 @@ const Banner = (props) => {
                     className="banner"
                     style={{ backgroundImage: `url(${props.imgUrl})` }}
                 >
-                    <h1>{props.title}</h1>
+                    <h1>{props.bannerTitle}</h1>
                 </div>
             );
         case "contact":
@@ -35,7 +35,7 @@ const Banner = (props) => {
                     className="banner"
                     style={{ backgroundImage: `url(${props.imgUrl})` }}
                 >
-                    <h1>{props.title}</h1>
+                    <h1>{props.bannerTitle}</h1>
                 </div>
             );
         default:
@@ -44,7 +44,7 @@ const Banner = (props) => {
                     className="banner {props.page}"
                     style={{ backgroundColor: props.bgColor }}
                 >
-                    <h1>{props.title}</h1>
+                    <h1>{props.bannerTitle}</h1>
                 </div>
             );
     }

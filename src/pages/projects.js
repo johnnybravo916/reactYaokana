@@ -45,7 +45,7 @@ const ProjectsPage = () => {
                         id={project.id}
                         className="linkgrid__background animate__animated"
                         style={{
-                            backgroundImage: `url(${project._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url})`,
+                            backgroundImage: `url(${project._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url})`,
                         }}
                     ></div>
                 );
