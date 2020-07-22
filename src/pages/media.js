@@ -5,16 +5,16 @@ import axios from "axios";
 import parse from "html-react-parser";
 
 const MediaPage = () => {
-    const [projects, setProjects] = useState([]);
+    const [media, setMedia] = useState([]);
     const [background, setBackground] = useState(null);
 
     useEffect(() => {
-        let projectsUrl = "http://yaokana.com/wp-json/wp/v2/projects?_embed";
+        let mediaUrl = "http://yaokana.com/wp-json/wp/v2/medialinks?_embed";
         axios
-            .get(projectsUrl)
-            .then((projectsData) => {
-                setProjects([...projectsData.data]);
-                console.log(projectsData.data)
+            .get(mediaUrl)
+            .then((mediaData) => {
+                setMedia([...mediaData.data]);
+                console.log(mediaData.data)
             })
             .catch((error) => {
                 console.log(error);
@@ -38,31 +38,31 @@ const MediaPage = () => {
 
     return (
         <main className="linkgrid">
-            {projects.map((project, index) => {
+            {media.map((media, index) => {
                 return (
                     <div
                         key={index}
-                        id={project.id}
+                        id={media.id}
                         className="linkgrid__background animate__animated"
                         style={{
-                            backgroundImage: `url(${project._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url})`,
+                            backgroundImage: `url(${media.acf.image})`,
                         }}
                     ></div>
                 );
             })}
             <div className="linkgrid__wrapper">
-                {projects.map((project, index) => {
+                {media.map((media, index) => {
                     return (
                         <div
                             key={index}
                             className="linkgrid__linkwrap"
-                            onMouseOver={() => setBackground(project.id)}
+                            onMouseOver={() => setBackground(media.id)}
                         >
                             <Link
-                                to={`/${project.slug}`}
-                                title={parse(project.title.rendered)}
+                                to={`/${media.slug}`}
+                                title={parse(media.title.rendered)}
                             >
-                                {parse(project.title.rendered)}
+                                {parse(media.title.rendered)}
                             </Link>
                         </div>
                     );
