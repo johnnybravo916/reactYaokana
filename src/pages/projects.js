@@ -8,6 +8,11 @@ const ProjectsPage = () => {
     const [projects, setProjects] = useState([]);
     const [background, setBackground] = useState(null);
 
+    useEffect(()=>{
+        const pageClass = document.querySelector('.page');
+        pageClass.classList.add('page--projects');
+    })
+
     useEffect(() => {
         let projectsUrl = "http://yaokana.com/wp-json/wp/v2/projects?_embed";
         axios

@@ -41,7 +41,7 @@ const PageMenu = (props) => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/contact" title="contact">
+                    <Link to="/projects" title="projects">
                         projects
                     </Link>
                 </li>

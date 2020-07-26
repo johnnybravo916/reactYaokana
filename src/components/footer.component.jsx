@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+    const [footerclass, setFooterClass] = useState('');
+
+    useEffect(()=>{
+        
+    })
+
     return (
         <footer className="footer">
             <ul className="footer__social">

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+import useForm from "../hooks/useForm.hook";
+import validate from "../components/validation.component";
+
 import Banner from "../components/banner.component";
 import ProjectComponent from "../components/project.component";
 
@@ -7,48 +10,64 @@ import axios from "axios";
 
 const ContactPage = () => {
     const initialState = {
-        Name: "",
-        Email: "",
-        Subject: "",
-        Message: "",
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
     };
+    const { values, handleChange, handleSubmit, errors } = useForm(
+        initialState,
+        submitForm,
+        validate
+    );
+
     const [content, setContent] = useState([]);
-    const [userdata, setUserdata] = useState(initialState);
-    const { Name, Email, Subject, Message } = userdata;
 
-    const handleChange = (e) => {
-        console.log(e);
-        setUserdata({ ...userdata, [e.target.name]: e.target.value });
-        console.log(userdata);
-    };
+    function submitForm() {
+        console.log("success");
+    }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    // const [userdata, setUserdata] = useState(initialState);
+    // const { Name, Email, Subject, Message } = userdata;
 
-        const emailBody = {
-            Name: userdata.Name,
-            Email: userdata.Email,
-            Subject: userdata.Subject,
-            Message: userdata.Message,
-        };
+    // const handleChange = (e) => {
+    //     console.log(e);
+    //     setUserdata({ ...userdata, [e.target.name]: e.target.value });
+    //     console.log(userdata);
+    // };
 
-        const form = new FormData();
-        for (const field in emailBody) {
-            form.append(field, emailBody[field]);
-        }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
 
-        console.log(form);
-        let projectsUrl =
-            "https://cors-anywhere.herokuapp.com/http://yaokana.com/wp-json/contact-form-7/v1/contact-forms/1958/feedback";
-        axios
-            .post(projectsUrl, form)
-            .then((response) => {
-                console.log("yes ", response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
+    //     const emailBody = {
+    //         Name: userdata.Name,
+    //         Email: userdata.Email,
+    //         Subject: userdata.Subject,
+    //         Message: userdata.Message,
+    //     };
+
+    //     const form = new FormData();
+    //     for (const field in emailBody) {
+    //         form.append(field, emailBody[field]);
+    //     }
+
+    //     console.log(form);
+    //     let projectsUrl =
+    //         "https://cors-anywhere.herokuapp.com/http://yaokana.com/wp-json/contact-form-7/v1/contact-forms/1958/feedback";
+    //     axios
+    //         .post(projectsUrl, form)
+    //         .then((response) => {
+    //             console.log("yes ", response);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // };
+
+    useEffect(()=>{
+        const pageClass = document.querySelector('.page');
+        pageClass.classList.add('page--contact');
+    })
 
     useEffect(() => {
         let contentUrl = "http://yaokana.com/wp-json/wp/v2/pages/15?_embed";
@@ -85,32 +104,72 @@ const ContactPage = () => {
                                                 hello there
                                             </h2>
                                             <form onSubmit={handleSubmit}>
+                                                <div className="form__field">
+                                                    {errors.name && (
+                                                        <div className="error">
+                                                            {errors.name}
+                                                        </div>
+                                                    )}
+                                                    <input
+                                                        className={`input${
+                                                            errors.email &&
+                                                            "--error"
+                                                        }`}
+                                                        name="name"
+                                                        type="text"
+                                                        placeholder="name"
+                                                        onChange={handleChange}
+                                                        value={values.name}
+                                                    />
+                                                </div>
+                                                <div className="form__field">
+                                                    {errors.email && (
+                                                        <div className="error">
+                                                            {errors.email}
+                                                        </div>
+                                                    )}
+                                                    <input
+                                                        className={`input${
+                                                            errors.email &&
+                                                            "--error"
+                                                        }`}
+                                                        autoComplete="off"
+                                                        name="email"
+                                                        type="email"
+                                                        placeholder="email"
+                                                        onChange={handleChange}
+                                                        value={values.email}
+                                                    />
+                                                </div>
+                                                {errors.subject && (
+                                                    <div className="error">
+                                                        {errors.subject}
+                                                    </div>
+                                                )}
                                                 <input
-                                                    name="Name"
-                                                    type="text"
-                                                    placeholder="name"
-                                                    onChange={handleChange}
-                                                    value={Name}
-                                                />
-                                                <input
-                                                    name="Email"
-                                                    type="email"
-                                                    placeholder="email"
-                                                    onChange={handleChange}
-                                                    value={Email}
-                                                />
-                                                <input
-                                                    name="Subject"
+                                                    className={`input--subject input${
+                                                        errors.email &&
+                                                        "--error"
+                                                    }`}
+                                                    name="subject"
                                                     type="text"
                                                     placeholder="subject"
-                                                    className="input--subject"
                                                     onChange={handleChange}
-                                                    value={Subject}
+                                                    value={values.subject}
                                                 />
+                                                {errors.message && (
+                                                    <div className="error">
+                                                        {errors.message}
+                                                    </div>
+                                                )}
                                                 <textarea
-                                                    name="Message"
+                                                    className={`input${
+                                                        errors.email &&
+                                                        "--error"
+                                                    }`}
+                                                    name="message"
                                                     onChange={handleChange}
-                                                    value={Message}
+                                                    value={values.message}
                                                     placeholder="message"
                                                 ></textarea>
                                                 <input
@@ -118,12 +177,11 @@ const ContactPage = () => {
                                                     value="send"
                                                 />
                                             </form>
-                                            {userdata.name}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <ProjectComponent />
+                            <ProjectComponent />
                         </main>
                     </React.Fragment>
                 );

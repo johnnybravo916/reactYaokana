@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Grid from "./components/grid.component";
@@ -14,11 +14,11 @@ import Contactpage from "./pages/contact";
 
 import "./sass/main.scss";
 
-function App() { 
+function App() {
     return (
-        <>
-            <Grid/>
-            <Header/>
+        <div className="page">
+            <Grid />
+            <Header />
             <Switch>
                 <Route exact path="/" component={Homepage} />
                 <Route path="/about" component={AboutPage} />
@@ -27,8 +27,8 @@ function App() {
                 <Route path="/contact" component={Contactpage} />
                 <Route path="/:slug" component={SinglePage} />
             </Switch>
-            <Footer/>
-        </>
+            <Footer />
+        </div>
     );
 }
 

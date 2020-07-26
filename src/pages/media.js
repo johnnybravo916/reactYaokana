@@ -8,6 +8,11 @@ const MediaPage = () => {
     const [media, setMedia] = useState([]);
     const [background, setBackground] = useState(null);
 
+    useEffect(()=>{
+        const pageClass = document.querySelector('.page');
+        pageClass.classList.add('page--projects');
+    })
+
     useEffect(() => {
         let mediaUrl = "http://yaokana.com/wp-json/wp/v2/medialinks?_embed";
         axios

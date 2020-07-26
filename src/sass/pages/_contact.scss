@@ -30,6 +30,7 @@
         margin: 150px 100px 150px 200px;
         input {
             margin-bottom: 20px;
+            width:100%;
             border: 1px solid rgba($black, 0.5);
             padding: 10px;
             &.input--subject {
@@ -37,6 +38,9 @@
                 @include lg {
                     grid-column: 1;
                 }
+            }
+            &.input--error{
+                border:1px solid $red;
             }
         }
         textarea {
@@ -49,8 +53,12 @@
             @include lg {
                 grid-column: 1;
             }
+            &.input--error{
+                border:1px solid $red;
+            }
         }
         input[type="submit"] {
+            cursor:pointer;
             background: $teal;
             color: $white;
             border: none;
