@@ -8,6 +8,13 @@
   &__wrapper{
     display:grid;grid-template-columns:repeat(4, 1fr);grid-auto-rows:30vh;@include position-content;
     &:hover a{color:$white;opacity:0.5}
+    @include md{
+      grid-template-columns: 1fr 1fr;
+    }
+    @include sm{
+      grid-template-columns: 1fr;
+      grid-auto-rows:auto;
+    }
   }
   &__linkwrap{
     text-align:center;@include center-content;

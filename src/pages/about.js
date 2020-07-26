@@ -30,7 +30,7 @@ const AboutPage = () => {
                     <React.Fragment key={index}>
                         <Banner
                             page="about"
-                            title={content.title.rendered}
+                            bannerTitle={content.title.rendered}
                             imgUrl={content._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url}
                             bgColor="#000"
                             secondImgUrl = {content.acf.profile_photo}

@@ -5,13 +5,37 @@
     &:before{content:'';top:0;left:0;width:100%;height:100%;background:black;opacity:0.7;position:absolute;z-index:0}
     h2 {
       font-size: $fontXLarge;font-weight: $fontWeightBold;-webkit-text-stroke: 3px $white;color: rgba($white, 0);z-index:1;
+      @include xl {
+        font-size:$fontXLarge - 2;
+      }
+      @include lg {
+        font-size:$fontXLarge - 4;
+      }
+      @include md {
+        font-size:$fontXLarge - 6;
+      }
+      @include sm {
+        font-size:$fontXLarge - 7;bottom:-5%;
+        -webkit-text-stroke: 1px $white
+      }
     }
     &--number{
-      position:absolute;left:-5%;bottom:-40%;font-size:$fontXLarge * 5;color:rgba($white, 0);font-weight:$fontWeightBold; -webkit-text-stroke: 5px $white;z-index:2;
+      position:absolute;left:-5%;bottom:-10%;font-size:$fontXLarge * 5;line-height:1;color:rgba($white, 0);font-weight:$fontWeightBold; -webkit-text-stroke: 5px $white;z-index:2;
+      @include xl {
+        font-size:$fontXLarge * 3;
+      }  
+      @include md {
+        font-size:$fontXLarge * 2.5;bottom:-5%;
+      }
+      @include sm {
+        font-size:$fontXLarge * 1;bottom:10px;left:10px;
+      }
     }
   }
   &__title{
-    z-index:50;position:absolute;cursor:pointer
+    z-index:50;position:absolute;cursor:pointer;
+    &:hover{text-decoration:none;}
+    &:hover h2{-webkit-text-stroke-color:$salmon;}
   }
   &__link{
     color:$salmon;transform:translateY(100px);font-size:$fontMedium
@@ -19,6 +43,9 @@
   &__mainlink{
     position:absolute;z-index:5;left:0;right:0;bottom:5%;margin:0 auto;display:block;text-align:center;font-size:$fontMedium;color:$salmon;
     &:hover{color:$salmon}
+    @include sm {
+      left:auto;right:10px;
+    }
   }
 }
 

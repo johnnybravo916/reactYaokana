@@ -10,6 +10,12 @@
     .svg--a {fill: $salmon;}
     .svg--y {fill: $teal;}
     .svg--title {fill: $white;}
+    @include lg{
+      min-width:120px;
+    }
+    @include sm{
+      min-width:100px;margin-left:10px;margin-top:10px;
+    }
   }
   &--white{
     .svg--a, .svg--y  {fill: $white;}

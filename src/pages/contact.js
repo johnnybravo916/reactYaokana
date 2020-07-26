@@ -103,6 +103,7 @@ const ContactPage = () => {
                                                     name="Subject"
                                                     type="text"
                                                     placeholder="subject"
+                                                    className="input--subject"
                                                     onChange={handleChange}
                                                     value={Subject}
                                                 />

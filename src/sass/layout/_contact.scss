@@ -1,4 +1,15 @@
-.contact--footer{
-  background:url(../../assets/images/bg-contact.png) $white;min-height:500px;margin-left:5%;margin-right:5%;text-align:center;@include center-content;@include section-margin;
-  a{color:$salmon}
+.contact--footer {
+    background: url(../../assets/images/bg-contact.png) $white;
+    min-height: 500px;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    @include center-content;
+    @include section-margin;
+    a {
+        color: $salmon;
+    }
+    @include md{
+      min-height:200px;
+    }
 }

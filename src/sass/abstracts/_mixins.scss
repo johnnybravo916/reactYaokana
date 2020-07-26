@@ -1,16 +1,59 @@
-@mixin position-content{
-  position:relative;
-  z-index:5;
+@mixin position-content {
+    position: relative;
+    z-index: 5;
 }
 
-@mixin vertical-text{
-  transform: rotate(-90deg)
+@mixin vertical-text {
+    transform: rotate(-90deg);
 }
 
-@mixin center-content{
-  display:flex;justify-content:center;align-items:center
+@mixin center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@mixin section-margin{
-  margin-bottom:150px
+@mixin section-margin {
+    margin-bottom: 150px;
+    @include md {
+        margin-bottom: 100px;
+    }
+    @include sm {
+        margin-bottom: 50px;
+    }
+}
+
+// Small devices
+@mixin sm {
+    @media (max-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+
+// Medium devices
+@mixin md {
+    @media (max-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+
+// Large devices
+@mixin lg {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+
+// Extra large devices
+@mixin xl {
+    @media (max-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+
+// custom
+@mixin rwd($screen) {
+    @media (max-width: $screen+"px") {
+        @content;
+    }
 }

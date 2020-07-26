@@ -1,7 +1,59 @@
-html{font-size:10px}
-body {font-family: $Montserrat, sans-serif;font-size:$fontDefault * 2;color:$black;line-height:2;font-weight:$fontWeightLight}
+html {
+    font-size: 10px;
+}
+body {
+    font-family: $Montserrat, sans-serif;
+    font-size: $fontDefault * 2;
+    color: $black;
+    line-height: 2;
+    font-weight: $fontWeightLight;
+}
 
-a{cursor:pointer}
-h1{font-size: $fontXLarge * 2;font-weight: $fontWeightBold;-webkit-text-stroke: 5px $white;color: rgba($white, 0);}
-h2{font-size:$fontDefault * 10;}
-h3{font-size:$fontDefault * 9;}
+a {
+    cursor: pointer;
+    &:hover {
+        color: $salmon;
+    }
+}
+h1 {
+    font-size: $fontXLarge * 2;
+    font-weight: $fontWeightBold;
+    -webkit-text-stroke: 5px $white;
+    color: rgba($white, 0);
+    padding:0 20px;
+    @include xl{
+      font-size: $fontXLarge;
+    }
+    @include md{
+      font-size: $fontXLarge - 2;
+      margin-top:100px;
+      -webkit-text-stroke: 2px $white;
+    }
+    @include sm{
+      font-size: $fontXLarge - 5;
+    }
+}
+h2 {
+    font-size: $fontDefault * 10;
+    @include lg{
+      font-size: $fontDefault * 8;
+    }
+    @include md{
+      font-size: $fontDefault * 6;
+    }
+    @include sm{
+      font-size: $fontDefault * 4;
+    }
+}
+h3 {
+    font-size: $fontDefault * 9;
+    @include lg{
+      font-size: $fontDefault * 7;
+    }
+    @include md{
+      font-size: $fontDefault * 5;
+    }
+    @include sm{
+      font-size: $fontDefault * 3;
+    }
+}

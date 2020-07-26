@@ -1,7 +1,32 @@
-.about{
-  padding-top:300px;
-  .container{max-width:900px;}
-  h2{color:$teal;margin-bottom:55px;}
-  > h2{color:$salmon;position:absolute;left:-300px;@include vertical-text}
-  &__content{@include section-margin;}
-} 
+.about {
+    padding-top: 300px;
+    .container {
+        max-width: 900px;
+    }
+    h2 {
+        color: $teal;
+        margin-bottom: 55px;
+    }
+    > h2 {
+        color: $salmon;
+        position: absolute;
+        left: -300px;
+        @include vertical-text;
+        @include md {
+          position:relative;
+          margin-left:20px;
+          margin-bottom:20px;
+          left:auto;
+          transform:rotate(0)
+        }
+    }
+    &__content {
+        @include section-margin;
+    }
+    @include md {
+      padding-top: 250px;
+  }
+    @include sm {
+        padding-top: 20px;
+    }
+}
