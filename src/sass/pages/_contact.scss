@@ -5,9 +5,14 @@
     z-index: 2;
     border: 1px solid rgba($black, 0.4);
     @include md{
-        top:0;
-        margin:20px auto 50px;
+        max-width:70%;
+        margin:0 auto;
     }
+    @include sm{
+        top:0;
+        max-width:100%;
+        margin:20px auto 150px;
+    }    
     &__title {
         @include vertical-text;
         color: $salmon;

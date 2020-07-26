@@ -22,7 +22,7 @@ const ProjectComponent = () => {
 
     return (
         <div className="latestprojects">
-            <h3>latest projects</h3>
+            <h2>latest projects</h2>
             <div className="latestprojectgrid">
                 {projects.slice(0, 2).map((project, index) => {
                     return (

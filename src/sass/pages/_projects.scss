@@ -4,7 +4,7 @@
 }
 
 .linkgrid{
-  padding-top:20vh;padding-left:10vw;padding-right:10vw;background-color:rgba($black,0.8);min-height:100vh;
+  padding-top:20vh;padding-left:10vw;padding-right:10vw;background-color:rgba($white,0.2);min-height:100vh;
   &__wrapper{
     display:grid;grid-template-columns:repeat(4, 1fr);grid-auto-rows:30vh;@include position-content;
     &:hover a{color:$white;opacity:0.5}

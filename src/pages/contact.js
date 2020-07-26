@@ -123,8 +123,8 @@ const ContactPage = () => {
                                     </div>
                                 </div>
                             </div>
-                        </main>
                         <ProjectComponent />
+                        </main>
                     </React.Fragment>
                 );
             })}
