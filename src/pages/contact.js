@@ -154,10 +154,11 @@ const ContactPage = () => {
                                                         </div>
                                                     )}
                                                     <input
-                                                        className={`input--subject input${
-                                                            errors.email &&
-                                                            "--error"
-                                                        }`}
+                                                        className={                                                            errors.email &&
+                                                            `input${
+                                                                errors.subject &&
+                                                                "--error"
+                                                            }`}
                                                         name="subject"
                                                         type="text"
                                                         placeholder="subject"
@@ -173,7 +174,7 @@ const ContactPage = () => {
                                                     )}
                                                     <textarea
                                                         className={`input${
-                                                            errors.email &&
+                                                            errors.message &&
                                                             "--error"
                                                         }`}
                                                         name="message"

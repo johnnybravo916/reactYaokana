@@ -23,9 +23,7 @@ const useForm = (initialState ,callback, validate) => {
             ...values,
             [event.target.name]: event.target.value,
         }));
-        const eventError = event.target.name;
-        const eventErrorClass = `document.querySelector('.error---${eventError}')`;
-        eventErrorClass.classList.add(`${eventError}--test`)
+        setErrors(validate(values));
     };
 
     return {
