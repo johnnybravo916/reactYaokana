@@ -14,7 +14,7 @@ import Contactpage from "./pages/contact";
 
 import "./sass/main.scss";
 
-function App() {
+function App(props) {
     return (
         <div className="page">
             <Grid />
@@ -25,7 +25,7 @@ function App() {
                 <Route path="/media" component={MediaPage} />
                 <Route path="/projects" component={ProjectsPage} />
                 <Route path="/contact" component={Contactpage} />
-                <Route path="/:slug" component={SinglePage} />
+                <Route path="/:slug" component={SinglePage}/>
             </Switch>
             <Footer />
         </div>

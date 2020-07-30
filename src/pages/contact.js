@@ -4,7 +4,7 @@ import useForm from "../hooks/useForm.hook";
 import validate from "../components/validation.component";
 
 import Banner from "../components/banner.component";
-import ProjectComponent from "../components/project.component";
+import ProjectFooter from "../components/projectfooter.component";
 
 import axios from "axios";
 
@@ -64,10 +64,10 @@ const ContactPage = () => {
     //         });
     // };
 
-    useEffect(()=>{
-        const pageClass = document.querySelector('.page');
-        pageClass.classList.add('page--contact');
-    })
+    useEffect(() => {
+        const pageClass = document.querySelector(".page");
+        pageClass.classList.add("page--contact");
+    });
 
     useEffect(() => {
         let contentUrl = "http://yaokana.com/wp-json/wp/v2/pages/15?_embed";
@@ -111,10 +111,13 @@ const ContactPage = () => {
                                                         </div>
                                                     )}
                                                     <input
-                                                        className={`input${
-                                                            errors.email &&
-                                                            "--error"
-                                                        }`}
+                                                        className={
+                                                            errors.name &&
+                                                            `input${
+                                                                errors.name &&
+                                                                "--error"
+                                                            }`
+                                                        }
                                                         name="name"
                                                         type="text"
                                                         placeholder="name"
@@ -129,10 +132,13 @@ const ContactPage = () => {
                                                         </div>
                                                     )}
                                                     <input
-                                                        className={`input${
+                                                        className={
                                                             errors.email &&
-                                                            "--error"
-                                                        }`}
+                                                            `input${
+                                                                errors.email &&
+                                                                "--error"
+                                                            }`
+                                                        }
                                                         autoComplete="off"
                                                         name="email"
                                                         type="email"
@@ -141,37 +147,41 @@ const ContactPage = () => {
                                                         value={values.email}
                                                     />
                                                 </div>
-                                                {errors.subject && (
-                                                    <div className="error">
-                                                        {errors.subject}
-                                                    </div>
-                                                )}
-                                                <input
-                                                    className={`input--subject input${
-                                                        errors.email &&
-                                                        "--error"
-                                                    }`}
-                                                    name="subject"
-                                                    type="text"
-                                                    placeholder="subject"
-                                                    onChange={handleChange}
-                                                    value={values.subject}
-                                                />
-                                                {errors.message && (
-                                                    <div className="error">
-                                                        {errors.message}
-                                                    </div>
-                                                )}
-                                                <textarea
-                                                    className={`input${
-                                                        errors.email &&
-                                                        "--error"
-                                                    }`}
-                                                    name="message"
-                                                    onChange={handleChange}
-                                                    value={values.message}
-                                                    placeholder="message"
-                                                ></textarea>
+                                                <div className="form__field form--fullwidth">
+                                                    {errors.subject && (
+                                                        <div className="error">
+                                                            {errors.subject}
+                                                        </div>
+                                                    )}
+                                                    <input
+                                                        className={`input--subject input${
+                                                            errors.email &&
+                                                            "--error"
+                                                        }`}
+                                                        name="subject"
+                                                        type="text"
+                                                        placeholder="subject"
+                                                        onChange={handleChange}
+                                                        value={values.subject}
+                                                    />
+                                                </div>
+                                                <div className="form__field form--fullwidth">
+                                                    {errors.message && (
+                                                        <div className="error">
+                                                            {errors.message}
+                                                        </div>
+                                                    )}
+                                                    <textarea
+                                                        className={`input${
+                                                            errors.email &&
+                                                            "--error"
+                                                        }`}
+                                                        name="message"
+                                                        onChange={handleChange}
+                                                        value={values.message}
+                                                        placeholder="message"
+                                                    ></textarea>
+                                                </div>
                                                 <input
                                                     type="submit"
                                                     value="send"
@@ -181,7 +191,7 @@ const ContactPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <ProjectComponent />
+                            <ProjectFooter />
                         </main>
                     </React.Fragment>
                 );

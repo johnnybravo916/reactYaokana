@@ -20,10 +20,17 @@
                     font-size: $fontDefault * 2;
                 }
             }
+            &:hover{text-decoration:none}
             @include md {
                 min-height:25vh;
                 margin-top: 20px;
             }
+        }
+        &__titles{
+            padding:0 20px;text-align:center;
+        }
+        &--first{
+         grid-column: 2 / span 1;
         }
         @include md {
             grid-template-columns: 1fr;
