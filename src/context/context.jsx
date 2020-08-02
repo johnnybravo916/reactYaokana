@@ -20,10 +20,14 @@ const DataProvider = (props) => {
     const [loadingNextprevProject, setLoadingNextprevProject] = useState(true);
     const [nextID, setNextID] = useState("");
     const [prevID, setPrevID] = useState("");
+    const [contact, setContact] = useState([]);
+    const [contactApi, setContactApi] = useState([]);
+    const [loadingContact, setLoadingContact] = useState(true);
 
     const urlProjects = `projects?_embed`;
     const urlMedia = `medialinks?_embed`;
     const urlAbout = `pages/1911?_embed`;
+    const urlContact = `pages/15?_embed`;
 
     const [background, setBackground] = useState(null);
 
@@ -81,6 +85,18 @@ const DataProvider = (props) => {
             });
     };
 
+    const getContact = () => {
+        axios
+            .get(`${url}${urlContact}`)
+            .then((content) => {
+                setContact([content.data]);
+                setLoadingContact(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
     const getMedia = () => {
         axios
             .get(`${url}${urlMedia}`)
@@ -116,6 +132,7 @@ const DataProvider = (props) => {
         getProjects();
         getMedia();
         getAbout();
+        getContact();
     }, [urlProjects, prevID, nextID]);
 
     return (
@@ -141,6 +158,8 @@ const DataProvider = (props) => {
                 setNextID,
                 setPrevID,
                 setnextprevProject,
+                contact,
+                loadingContact
             }}
         >
             {props.children}

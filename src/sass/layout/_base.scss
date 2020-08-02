@@ -112,6 +112,7 @@
 
 img{max-width:100%}
 
+.center{@include center-content}
 
 .show {
     display: block !important;

@@ -4,15 +4,40 @@
     background: $white;
     z-index: 2;
     border: 1px solid rgba($black, 0.4);
-    @include md{
-        max-width:70%;
-        margin:0 auto;
+    .sending{padding:100px 0;}
+    &__error{
+        padding:20px;text-align:center;color:$red;
     }
-    @include sm{
-        top:0;
-        max-width:100%;
-        margin:20px auto 150px;
-    }    
+    &__wrapper {
+        padding: 100px 100px;
+        text-align:center;
+        h3 {
+            font-size: $fontMedium + 2;color:$white;
+            margin-bottom:20px;
+            -webkit-text-stroke: 2px $teal;
+            @include md {
+                font-size: $fontMedium;
+            }
+        }
+        h4 {
+            font-size: $fontMedium;
+            @include md {
+                font-size: $fontMedium - 1;
+            }
+        }
+        @include md{
+            padding:20px;
+        }
+    }
+    @include md {
+        max-width: 70%;
+        margin: 0 auto;
+    }
+    @include sm {
+        top: 0;
+        max-width: 100%;
+        margin: 20px auto 150px;
+    }
     &__title {
         @include vertical-text;
         color: $salmon;
@@ -28,11 +53,11 @@
         grid-template-columns: 1fr 1fr;
         column-gap: 20px;
         margin: 150px 100px 150px 200px;
-        .form{
-            &__field{
-                position:relative;
+        .form {
+            &__field {
+                position: relative;
             }
-            &--fullwidth{
+            &--fullwidth {
                 grid-column: 1 / span 2;
                 @include lg {
                     grid-column: 1;
@@ -41,37 +66,37 @@
         }
         input {
             margin-bottom: 20px;
-            width:100%;
+            width: 100%;
             border: 1px solid rgba($black, 0.5);
             padding: 10px;
-            &.input--error{
-                border:1px solid $red;
+            &.input--error {
+                border: 1px solid $red;
             }
         }
         textarea {
-            width:100%;
+            width: 100%;
             height: 200px;
             border: 1px solid rgba($black, 0.5);
             padding: 10px;
             margin-bottom: 20px;
             resize: none;
-            &.input--error{
-                border:1px solid $red;
+            &.input--error {
+                border: 1px solid $red;
             }
         }
         input[type="submit"] {
-            cursor:pointer;
+            cursor: pointer;
             background: $teal;
             color: $white;
             border: none;
         }
         .error {
             color: $red;
-            position:absolute;
-            top:-20px;
-            left:10px;
+            position: absolute;
+            top: -20px;
+            left: 10px;
         }
-        
+
         @include lg {
             grid-template-columns: 1fr;
             margin: 20px;

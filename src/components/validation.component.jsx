@@ -17,8 +17,9 @@ const validate = (values) => {
 
     if(!values.message){
       errors.message = "message is required";
+    } else if (values.message.includes('seo')) {
+      errors.message = "hahaha no";
     }
-
 
     return errors;
 };
