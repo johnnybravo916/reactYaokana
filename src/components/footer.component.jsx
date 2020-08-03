@@ -1,15 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
-    const [footerclass, setFooterClass] = useState('');
+import {DataContext} from "../context/context";
 
-    useEffect(()=>{
-        
-    })
+const Footer = () => {
+    const appContext = useContext(DataContext);
+    const {footerClass} = appContext;
 
     return (
-        <footer className="footer">
+        <footer className={footerClass ? `footer footer--${footerClass}` : 'footer'} >
             <ul className="footer__social">
                 <li>
                     <a

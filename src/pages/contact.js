@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
+
 import useForm from "../hooks/useForm.hook";
 import validate from "../components/validation.component";
 
@@ -29,7 +29,6 @@ const ContactPage = () => {
         formStatus,
         formError,
     } = useForm(
-        //values, handleChange, handleSubmit,
         initialState,
         submitForm,
         validate
@@ -55,7 +54,7 @@ const ContactPage = () => {
                                         .media_details.sizes.full.source_url
                                 }
                             />
-                            <main className="main">
+                            <main className="main animate__animated animated__slideInLeft">
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-md-12">

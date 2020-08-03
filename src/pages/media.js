@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect,useContext } from "react";
 
 import parse from "html-react-parser";
 
@@ -7,9 +6,15 @@ import { DataContext } from "../context/context";
 
 import Preloader from "../components/preloader.component";
 
-const MediaPage = () => {
+const MediaPage = (props) => {
     const appContext = useContext(DataContext);
-    const { media, handleBackground, loadingMedia } = appContext;
+    const { media, handleBackground, loadingMedia,setFooterClass } = appContext;
+
+    useEffect(()=>{
+        props.history.location.pathname === '/media' ? 
+        setFooterClass('gridLayout') :
+        setFooterClass('');
+    }, [setFooterClass, props.history.location.pathname])
 
     return (
         <>

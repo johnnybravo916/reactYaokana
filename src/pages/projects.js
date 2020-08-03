@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import parse from "html-react-parser";
@@ -7,9 +7,15 @@ import { DataContext } from "../context/context";
 
 import Preloader from "../components/preloader.component";
 
-const ProjectsPage = () => {
+const ProjectsPage = (props) => {
     const appContext = useContext(DataContext);
-    const { projects, handleBackground, loadingProjects } = appContext;
+    const { projects, handleBackground, loadingProjects, setFooterClass } = appContext;
+
+    useEffect(()=>{
+        props.history.location.pathname === '/projects' ? 
+        setFooterClass('gridLayout') :
+        setFooterClass('');
+    }, [setFooterClass, props.history.location.pathname])
 
     return (
         <>

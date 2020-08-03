@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 
 import Grid from "./components/grid.component";
 import Header from "./components/header.component";
@@ -12,24 +12,35 @@ import ProjectsPage from "./pages/projects";
 import SinglePage from "./pages/single";
 import Contactpage from "./pages/contact";
 
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./sass/main.scss";
 
-function App(props) {
+function App({ location }) {
     return (
-        <div className="page">
+        <>
             <Grid />
             <Header />
-            <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route path="/about" component={AboutPage} />
-                <Route path="/media" component={MediaPage} />
-                <Route path="/projects" component={ProjectsPage} />
-                <Route path="/contact" component={Contactpage} />
-                <Route path="/:slug" component={SinglePage}/>
-            </Switch>
+            <TransitionGroup>
+                <CSSTransition
+                    key={location.key}
+                    timeout={{ enter: 300, exit: 300 }}
+                    classNames={"fade"}
+                >
+                    <div className="page">
+                        <Switch location={location}>
+                            <Route exact path="/" component={Homepage} />
+                            <Route path="/about" component={AboutPage} />
+                            <Route path="/media" component={MediaPage} />
+                            <Route path="/projects" component={ProjectsPage} />
+                            <Route path="/contact" component={Contactpage} />
+                            <Route path="/:slug" component={SinglePage} />
+                        </Switch>
+                    </div>
+                </CSSTransition>
+            </TransitionGroup>
             <Footer />
-        </div>
+        </>
     );
 }
 
-export default App;
+export default withRouter(App);

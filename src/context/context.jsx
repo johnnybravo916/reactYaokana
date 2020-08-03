@@ -21,7 +21,7 @@ const DataProvider = (props) => {
     const [nextID, setNextID] = useState("");
     const [prevID, setPrevID] = useState("");
     const [contact, setContact] = useState([]);
-    const [contactApi, setContactApi] = useState([]);
+    const [footerClass, setFooterClass] = useState('');
     const [loadingContact, setLoadingContact] = useState(true);
 
     const urlProjects = `projects?_embed`;
@@ -31,6 +31,7 @@ const DataProvider = (props) => {
 
     const [background, setBackground] = useState(null);
 
+    
     useEffect(() => {
         window.scrollTo(0, 0);
         const projectUrl = `${url}projects?slug=${singlePath}&_embed`;
@@ -159,7 +160,9 @@ const DataProvider = (props) => {
                 setPrevID,
                 setnextprevProject,
                 contact,
-                loadingContact
+                loadingContact,
+                setFooterClass,
+                footerClass
             }}
         >
             {props.children}
