@@ -11,7 +11,7 @@ const MediaPage = (props) => {
     const { media, handleBackground, loadingMedia,setFooterClass } = appContext;
 
     useEffect(()=>{
-        props.history.location.pathname === '/media' ? 
+        props.history.location.pathname === '/media' ||props.history.location.pathname === '/projects' ? 
         setFooterClass('gridLayout') :
         setFooterClass('');
     }, [setFooterClass, props.history.location.pathname])

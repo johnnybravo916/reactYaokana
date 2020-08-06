@@ -6,7 +6,7 @@ import validate from "../components/validation.component";
 import Banner from "../components/banner.component";
 import ProjectFooter from "../components/projectfooter.component";
 import Status from "../components/status.component";
-
+import Slide from 'react-reveal/Slide';
 import { DataContext } from "../context/context";
 
 import Preloader from "../components/preloader.component";
@@ -62,10 +62,12 @@ const ContactPage = () => {
                                                 <h2 className="contact__title">
                                                     hello there
                                                 </h2>
+                                                <Slide bottom>
                                                 {
                                                     {
                                                         default: (
                                                             <>
+                                                            
                                                                 <form
                                                                     onSubmit={
                                                                         handleSubmit
@@ -198,7 +200,7 @@ const ContactPage = () => {
                                                             <Status status="success" />
                                                         ),
                                                     }[formStatus]
-                                                }
+                                                }</Slide>
                                             </div>
                                         </div>
                                     </div>

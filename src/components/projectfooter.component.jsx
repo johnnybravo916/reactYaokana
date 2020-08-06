@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 
 import { DataContext } from "../context/context";
-
+import Slide from "react-reveal/Slide";
 import Preloader from "../components/preloader.component";
 
 const ProjectFooter = (props) => {
@@ -38,7 +38,9 @@ const ProjectFooter = (props) => {
                     <Preloader />
                 ) : (
                     <div className="latestprojects">
-                        <h2>projects</h2>
+                        <Slide bottom>
+                            <h2>projects</h2>
+                        </Slide>
                         <div className="latestprojectgrid">
                             {nextprevProject.map((project, index) => {
                                 return (
@@ -56,16 +58,20 @@ const ProjectFooter = (props) => {
                                         }}
                                     >
                                         <div className="latestprojectgrid__titles">
-                                            <strong>
-                                                {
-                                                    project._embedded[
-                                                        "wp:term"
-                                                    ][0][0].name
-                                                }
-                                            </strong>
-                                            <h4>
-                                                {parse(project.title.rendered)}
-                                            </h4>
+                                            <Slide bottom>
+                                                <strong>
+                                                    {
+                                                        project._embedded[
+                                                            "wp:term"
+                                                        ][0][0].name
+                                                    }
+                                                </strong>
+                                                <h4>
+                                                    {parse(
+                                                        project.title.rendered
+                                                    )}
+                                                </h4>
+                                            </Slide>
                                         </div>
                                     </Link>
                                 );
@@ -77,7 +83,7 @@ const ProjectFooter = (props) => {
                 <Preloader />
             ) : (
                 <div className="latestprojects">
-                    <h2>latest projects</h2>
+                    <Slide bottom><h2>latest projects</h2></Slide>
                     <div className="latestprojectgrid">
                         {projects.slice(0, 2).map((project, index) => {
                             return (
@@ -91,6 +97,7 @@ const ProjectFooter = (props) => {
                                     }}
                                 >
                                     <div className="latestprojectgrid__titles">
+                                        <Slide bottom>
                                         <strong>
                                             {
                                                 project._embedded[
@@ -99,6 +106,7 @@ const ProjectFooter = (props) => {
                                             }
                                         </strong>
                                         <h4>{parse(project.title.rendered)}</h4>
+                                        </Slide>
                                     </div>
                                 </Link>
                             );

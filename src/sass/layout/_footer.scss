@@ -1,4 +1,7 @@
 .footer{
+  &--gridLayout{
+    position:fixed;bottom:0;left:0;width:100%;
+  }
   &__social{
     position:absolute;bottom:0;right:20px;z-index:10;
     li{

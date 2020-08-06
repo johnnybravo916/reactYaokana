@@ -1,5 +1,5 @@
 import React from "react";
-
+import Slide from "react-reveal/Slide";
 const Banner = (props) => {
     switch (props.page) {
         case "about":
@@ -8,7 +8,7 @@ const Banner = (props) => {
                     className="banner"
                     style={{ backgroundImage: `url(${props.imgUrl})` }}
                 >
-                    <h1 className="banner__about">{props.bannerTitle}</h1>
+                    <Slide bottom><h1 className="banner__about">{props.bannerTitle}</h1></Slide>
                     <img
                         className="banner__image"
                         src={props.secondImgUrl}
@@ -26,7 +26,7 @@ const Banner = (props) => {
                     className="banner"
                     style={{ backgroundImage: `url(${props.imgUrl})` }}
                 >
-                    <h1>{props.bannerTitle}</h1>
+                    <Slide bottom><h1>{props.bannerTitle}</h1></Slide>
                 </div>
             );
         case "contact":
@@ -35,7 +35,7 @@ const Banner = (props) => {
                     className="banner"
                     style={{ backgroundImage: `url(${props.imgUrl})` }}
                 >
-                    <h1>{props.bannerTitle}</h1>
+                    <Slide bottom><h1>{props.bannerTitle}</h1></Slide>
                 </div>
             );
         default:
@@ -44,7 +44,7 @@ const Banner = (props) => {
                     className="banner {props.page}"
                     style={{ backgroundColor: props.bgColor }}
                 >
-                    <h1>{props.bannerTitle}</h1>
+                    <Slide bottom><h1>{props.bannerTitle}</h1></Slide>
                 </div>
             );
     }

@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import Banner from "../components/banner.component";
 import ContactComponent from "../components/contact.component";
 import ProjectFooter from "../components/projectfooter.component";
-
+import Slide from "react-reveal/Slide";
 import parse from "html-react-parser";
 
 import { DataContext } from "../context/context";
@@ -37,13 +37,21 @@ const AboutPage = () => {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-md-12 about__content">
-                                            <h3>{content.acf.sub_header}</h3>
-                                            {parse(content.content.rendered)}
+                                            <Slide bottom>
+                                                <h3>
+                                                    {content.acf.sub_header}
+                                                </h3>
+                                            </Slide>
+                                            <Slide bottom>
+                                                {parse(
+                                                    content.content.rendered
+                                                )}
+                                            </Slide>
                                         </div>
                                     </div>
                                 </div>
                                 <ContactComponent />
-                                <ProjectFooter/>
+                                <ProjectFooter />
                             </main>
                         </React.Fragment>
                     );

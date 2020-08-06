@@ -10,9 +10,9 @@ import Preloader from "../components/preloader.component";
 const ProjectsPage = (props) => {
     const appContext = useContext(DataContext);
     const { projects, handleBackground, loadingProjects, setFooterClass } = appContext;
-
+    
     useEffect(()=>{
-        props.history.location.pathname === '/projects' ? 
+        props.history.location.pathname === '/media' ||props.history.location.pathname === '/projects' ? 
         setFooterClass('gridLayout') :
         setFooterClass('');
     }, [setFooterClass, props.history.location.pathname])
