@@ -39,7 +39,6 @@ const MediaPage = (props) => {
                     {media.map((media, index) => {
                         return (
                             <>
-                                <Helmet>{parse(media.yoast_head)}</Helmet>
                                 <div
                                     key={index}
                                     id={media.id}
