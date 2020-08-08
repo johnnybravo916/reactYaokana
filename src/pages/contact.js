@@ -6,7 +6,11 @@ import validate from "../components/validation.component";
 import Banner from "../components/banner.component";
 import ProjectFooter from "../components/projectfooter.component";
 import Status from "../components/status.component";
+
 import Slide from 'react-reveal/Slide';
+import parse from "html-react-parser";
+import { Helmet } from "react-helmet";
+
 import { DataContext } from "../context/context";
 
 import Preloader from "../components/preloader.component";
@@ -46,6 +50,7 @@ const ContactPage = () => {
                 contact.map((content, index) => {
                     return (
                         <React.Fragment key={index}>
+                            <Helmet>{parse(content.yoast_head)}</Helmet>
                             <Banner
                                 page="contact"
                                 bannerTitle={content.title.rendered}

@@ -7,10 +7,13 @@ const DataProvider = (props) => {
     const url = "http://yaokana.com/wp-json/wp/v2/";
     const [slider, setSlider] = useState([]);
     const [loadingSlider, setLoadingSlider] = useState(true);
+    const [homePage, setHomePage] = useState([]);
     const [projects, setProjects] = useState([]);
     const [loadingProjects, setLoadingProjects] = useState(true);
+    const [projectPage, setProjectPage] = useState([])
     const [media, setMedia] = useState([]);
     const [loadingMedia, setLoadingMedia] = useState(true);
+    const [mediaPage, setMediaPage] = useState([]);
     const [about, setAbout] = useState([]);
     const [loadingAbout, setLoadingAbout] = useState(true);
     const [singleProject, setSingleProject] = useState([]);
@@ -27,6 +30,9 @@ const DataProvider = (props) => {
     const urlProjects = `projects?_embed`;
     const urlMedia = `medialinks?_embed`;
     const urlAbout = `pages/1911?_embed`;
+    const urlProjectPage = `pages/189?_embed`;
+    const urlMediaPage = `pages/2002?_embed`;
+    const urlHomePage = `pages/5?_embed`;
     const urlContact = `pages/15?_embed`;
 
     const [background, setBackground] = useState(null);
@@ -68,6 +74,41 @@ const DataProvider = (props) => {
                 });
                 setnextprevProject([...prevProject, ...nextProject]);
                 setLoadingNextprevProject(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+ 
+    const getHomePage = () => {
+        axios
+            .get(`${url}${urlHomePage}`)
+            .then((content) => {
+                setHomePage([content.data]);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };   
+
+ 
+    const getMediaPage = () => {
+        axios
+            .get(`${url}${urlMediaPage}`)
+            .then((content) => {
+                setMediaPage([content.data]);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    const getProjectPage = () => {
+        axios
+            .get(`${url}${urlProjectPage}`)
+            .then((content) => {
+                setProjectPage([content.data]);
             })
             .catch((error) => {
                 console.log(error);
@@ -134,6 +175,9 @@ const DataProvider = (props) => {
         getMedia();
         getAbout();
         getContact();
+        getProjectPage();
+        getHomePage();
+        getMediaPage();
     }, [urlProjects, prevID, nextID]);
 
     return (
@@ -162,7 +206,10 @@ const DataProvider = (props) => {
                 contact,
                 loadingContact,
                 setFooterClass,
-                footerClass
+                footerClass,
+                projectPage,
+                homePage,
+                mediaPage
             }}
         >
             {props.children}

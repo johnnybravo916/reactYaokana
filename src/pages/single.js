@@ -3,13 +3,13 @@ import React, { useEffect, useContext } from "react";
 import Banner from "../components/banner.component";
 import ContactComponent from "../components/contact.component";
 import ProjectFooter from "../components/projectfooter.component";
-import Slide from "react-reveal/Slide";
-
-import parse from "html-react-parser";
 
 import { DataContext } from "../context/context";
-
 import Preloader from "../components/preloader.component";
+
+import Slide from "react-reveal/Slide";
+import { Helmet } from "react-helmet";
+import parse from "html-react-parser";
 
 const SinglePage = ({ match }) => {
     let slug = match.params.slug;
@@ -34,6 +34,7 @@ const SinglePage = ({ match }) => {
                 singleProject.map((project, index) => {
                     return (
                         <React.Fragment key={index}>
+                            <Helmet>{parse(project.yoast_head)}</Helmet>
                             <Banner
                                 bannerTitle={parse(project.title.rendered)}
                                 bgColor="#000"

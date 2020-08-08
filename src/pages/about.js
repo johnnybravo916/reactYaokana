@@ -7,6 +7,7 @@ import Slide from "react-reveal/Slide";
 import parse from "html-react-parser";
 
 import { DataContext } from "../context/context";
+import { Helmet } from "react-helmet";
 
 import Preloader from "../components/preloader.component";
 
@@ -22,6 +23,7 @@ const AboutPage = () => {
                 about.map((content, index) => {
                     return (
                         <React.Fragment key={index}>
+                            <Helmet>{parse(content.yoast_head)}</Helmet>
                             <Banner
                                 page="about"
                                 bannerTitle={content.title.rendered}
@@ -32,6 +34,7 @@ const AboutPage = () => {
                                 bgColor="#000"
                                 secondImgUrl={content.acf.profile_photo}
                             />
+
                             <main className="main about">
                                 <h2>{content.acf.main_header}</h2>
                                 <div className="container">
@@ -42,6 +45,12 @@ const AboutPage = () => {
                                                     {content.acf.sub_header}
                                                 </h3>
                                             </Slide>
+
+                                            {console.log(
+                                                content.yoast_head.split(
+                                                    "\n"
+                                                )[1]
+                                            )}
                                             <Slide bottom>
                                                 {parse(
                                                     content.content.rendered

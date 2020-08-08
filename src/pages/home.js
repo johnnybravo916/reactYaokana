@@ -1,18 +1,35 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {useContext} from "react";
 
-import SlickSlider from '../components/slider.component';
+import { DataContext } from "../context/context";
+import SlickSlider from "../components/slider.component";
 
-const HomePage  = () => {
-  return(
-    <main>
-    
-    <div className="slider">
-      <SlickSlider/>
-      <Link to="/projects" title="View Projects" className="slider__mainlink">view projects</Link>
-    </div>
-  </main>
-  )
-}
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import parse from "html-react-parser";
 
-export default HomePage ;
+
+const HomePage = () => {
+  const appContext = useContext(DataContext);
+  const {homePage} = appContext;
+
+    return (
+        <main>
+            {homePage.map((seo, index) => {
+                return <Helmet key="index">{parse(seo.yoast_head)}</Helmet>;
+            })}
+
+            <div className="slider">
+                <SlickSlider />
+                <Link
+                    to="/projects"
+                    title="View Projects"
+                    className="slider__mainlink"
+                >
+                    view projects
+                </Link>
+            </div>
+        </main>
+    );
+};
+
+export default HomePage;
