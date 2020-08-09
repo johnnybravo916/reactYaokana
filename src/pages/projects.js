@@ -33,7 +33,7 @@ const ProjectsPage = (props) => {
                 <>
                     <>
                         {projectPage.map((seo, index) => {
-                            return <Helmet>{parse(seo.yoast_head)}</Helmet>;
+                            return <Helmet key={index}>{parse(seo.yoast_head)}</Helmet>;
                         })}
                     </>
                     <main className="linkgrid">

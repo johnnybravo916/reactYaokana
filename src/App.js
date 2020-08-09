@@ -4,6 +4,7 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import Grid from "./components/grid.component";
 import Header from "./components/header.component";
 import Footer from "./components/footer.component";
+import ScrollTop from "./components/scroll.component";
 
 import Homepage from "./pages/home";
 import AboutPage from "./pages/about";
@@ -27,6 +28,7 @@ function App({ location }) {
                     classNames={"fade"}
                 >
                     <div className="page">
+                        <ScrollTop/>
                         <Switch location={location}>
                             <Route exact path="/" component={Homepage} />
                             <Route path="/about" component={AboutPage} />

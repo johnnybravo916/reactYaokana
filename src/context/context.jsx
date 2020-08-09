@@ -39,7 +39,6 @@ const DataProvider = (props) => {
 
     
     useEffect(() => {
-        window.scrollTo(0, 0);
         const projectUrl = `${url}projects?slug=${singlePath}&_embed`;
         axios
             .get(projectUrl)

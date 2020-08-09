@@ -50,12 +50,6 @@ const SinglePage = ({ match }) => {
                                         <div className="row">
                                             <div className="col-md-5">
                                                 <Slide bottom>
-                                                    <h2>
-                                                        {parse(
-                                                            project.title
-                                                                .rendered
-                                                        )}
-                                                    </h2>
                                                     <h3>
                                                         {
                                                             project._embedded[

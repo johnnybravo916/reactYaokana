@@ -35,14 +35,37 @@
   &__title{
     z-index:50;position:absolute;cursor:pointer;
     &:hover{text-decoration:none;}
+    h2{@include transition;}
     &:hover h2{-webkit-text-stroke-color:$salmon;}
   }
   &__link{
-    color:$salmon;transform:translateY(100px);font-size:$fontMedium
+    color:$salmon;transform:translateY(100px);font-size:$fontMedium;letter-spacing:1px;@include transition;
+    &:hover{
+      color:$white;text-decoration:none;
+    }
   }
   &__mainlink{
-    position:absolute;z-index:5;left:0;right:0;bottom:5%;margin:0 auto;display:block;text-align:center;font-size:$fontMedium;color:$salmon;
-    &:hover{color:$salmon}
+    position:absolute;z-index:5;left:0;right:0;bottom:5%;margin:0 auto;display:block;text-align:center;font-size:$fontMedium;color:$salmon;width:fit-content;
+    &:hover {
+      color: $white;
+      text-decoration: none;
+      &:after{
+        bottom:5px;
+        opacity:1;
+        
+      }
+  }
+  &:after {
+    content:"";
+      width: 100%;
+      height: 2px;
+      display: block;
+      position: absolute;
+      bottom: -5px;
+      opacity:0;
+      left: 0;
+      background:$salmon;transition:all 0.25s ease-in-out;
+  }
     @include sm {
       left:auto;right:10px;
     }

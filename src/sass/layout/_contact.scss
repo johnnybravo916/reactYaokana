@@ -4,12 +4,19 @@
     margin-left: 5%;
     margin-right: 5%;
     text-align: center;
+    background-size:cover;
+    @include transition;
     @include center-content;
     @include section-margin;
     a {
-        color: $salmon;
+        color: $salmon; @include transition;-webkit-text-stroke:1px $salmon;
+      &:hover{
+        text-decoration:none;-webkit-text-stroke:1px $salmon;color:transparent}
     }
     @include md{
       min-height:200px;
+    }
+    &:hover{
+      background-position:100%;
     }
 }

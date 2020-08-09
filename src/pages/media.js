@@ -32,7 +32,7 @@ const MediaPage = (props) => {
                 <>
                 <>
                 {mediaPage.map((seo, index) => {
-                    return <Helmet>{parse(seo.yoast_head)}</Helmet>;
+                    return <Helmet key={index}>{parse(seo.yoast_head)}</Helmet>;
                 })}
         </>
                 <main className="linkgrid">
