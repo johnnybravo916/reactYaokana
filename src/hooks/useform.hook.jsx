@@ -14,6 +14,7 @@ const useForm = (initialState, callback, validate) => {
     }, [errors]);
 
     const handleSubmit = (event) => {
+        
         if (event) event.preventDefault();
         //hide form then show if success
         setFormStatus("sending");

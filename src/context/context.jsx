@@ -160,11 +160,9 @@ const DataProvider = (props) => {
         );
         for (const backgroundImg of backgroundImgArray) {
             if (+backgroundImg.id === background) {
-                backgroundImg.style.zIndex = "-1";
-                backgroundImg.classList.add("animate__fadeIn");
+                backgroundImg.classList.add("linkgrid__fadeIn");
             } else {
-                backgroundImg.style.zIndex = "-2";
-                backgroundImg.classList.remove("animate__fadeIn");
+                backgroundImg.classList.remove("linkgrid__fadeIn");
             }
         }
     }, [background]);

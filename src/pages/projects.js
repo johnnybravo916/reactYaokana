@@ -65,12 +65,12 @@ const ProjectsPage = (props) => {
                                                 project.title.rendered
                                             )}
                                         >
-                                            <h4>
+                                            <h3>
                                                 {project._embedded[
                                                     "wp:term"
                                                 ][0][0].name.toLowerCase()}
-                                            </h4>
-                                            {parse(project.title.rendered)}
+                                            </h3>
+                                            <h2>{parse(project.title.rendered)}</h2>
                                         </Link>
                                     </div>
                                 );

@@ -82,7 +82,7 @@ const ContactPage = () => {
                                                                     {formError && (
                                                                         <div className="contact__error form--fullwidth">
                                                                             <strong>
-                                                                                There's error with your form, please try again.
+                                                                                There's an error with your form, please try again.
                                                                             </strong>
                                                                         </div>
                                                                     )}
