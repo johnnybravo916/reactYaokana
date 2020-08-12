@@ -46,7 +46,7 @@ const ProjectFooter = (props) => {
                                 return (
                                     <Link
                                         key={index}
-                                        to={`/${project.slug}`}
+                                        to={`/projects/${project.slug}`}
                                         className={`latestprojectgrid__singleproject ${
                                             props.prevId === null
                                                 ? "latestprojectgrid--first"
@@ -89,7 +89,7 @@ const ProjectFooter = (props) => {
                             return (
                                 <Link
                                     key={index}
-                                    to={`/${project.slug}`}
+                                    to={`/projects/${project.slug}`}
                                     title={parse(project.title.rendered)}
                                     className="latestprojectgrid__singleproject"
                                     style={{

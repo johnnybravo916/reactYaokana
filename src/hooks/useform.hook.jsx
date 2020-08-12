@@ -34,7 +34,7 @@ const useForm = (initialState, callback, validate) => {
         }
 
         let projectsUrl =
-            "https://yaokana.com/wp-json/contact-form-7/v1/contact-forms/1958/feedback";
+            "https://yaokana.com/wp/wp-json/contact-form-7/v1/contact-forms/1958/feedback";
         axios
             .post(projectsUrl, form)
             .then((response) => {

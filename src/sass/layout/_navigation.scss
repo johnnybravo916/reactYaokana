@@ -46,7 +46,7 @@
             list-style-type: none;
             line-height: 1;
             position: relative;
-            transition: all 2s linear;
+            transition: all 1.5s linear;
             @include xl {
                 font-size: $fontXLarge;
             }
@@ -56,19 +56,31 @@
             }
             @include sm {
                 font-size: $fontXLarge - 5;
-                margin-bottom: 20px;
+                margin-bottom: 20px;transition: all 1s linear;
             }
             &:first-child {
                 left: -1500px;
+                @include sm{
+                    left: -800px;
+                }
             }
             &:nth-child(2) {
                 left: -2000px;
+                @include sm{
+                    left: -700px;
+                }
             }
             &:nth-child(3) {
                 left: -2500px;
+                @include sm{
+                    left: -600px;
+                }
             }
             &:nth-child(4) {
                 left: -3000px;
+                @include sm{
+                    left: -500px;
+                }
             }
         }
         a {

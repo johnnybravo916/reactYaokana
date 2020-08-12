@@ -4,7 +4,7 @@ import axios from "axios";
 const DataContext = React.createContext();
 
 const DataProvider = (props) => {
-    const url = "http://yaokana.com/wp-json/wp/v2/";
+    const url = "https://yaokana.com/wp/wp-json/wp/v2/";
     const [slider, setSlider] = useState([]);
     const [loadingSlider, setLoadingSlider] = useState(true);
     const [homePage, setHomePage] = useState([]);

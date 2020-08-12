@@ -103,6 +103,9 @@
 .preloader {
     @include center-content;
     height: 100vh;
+    &__home{
+        height:100vh;@include center-content;
+    }
     &__branding {
         max-width: 100px;
         height: 100px;

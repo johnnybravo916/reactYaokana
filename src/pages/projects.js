@@ -60,7 +60,7 @@ const ProjectsPage = (props) => {
                                         }
                                     >
                                         <Link
-                                            to={`/${project.slug}`}
+                                            to={`/projects/${project.slug}`}
                                             title={parse(
                                                 project.title.rendered
                                             )}

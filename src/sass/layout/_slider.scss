@@ -79,5 +79,9 @@
   left: 100px;
 }
 
-.awssld__wrapper{height:100vh}
+.awssld__wrapper{height:100vh;
+  .preloader__branding{
+    margin:200px auto 0;
+  }
+}
 .awssld__content{background-size:cover;background-position:center center;}

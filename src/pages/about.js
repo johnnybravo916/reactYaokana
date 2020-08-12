@@ -46,11 +46,6 @@ const AboutPage = () => {
                                                 </h3>
                                             </Slide>
 
-                                            {console.log(
-                                                content.yoast_head.split(
-                                                    "\n"
-                                                )[1]
-                                            )}
                                             <Slide bottom>
                                                 {parse(
                                                     content.content.rendered

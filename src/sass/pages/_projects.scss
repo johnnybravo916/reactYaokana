@@ -16,6 +16,11 @@
     padding-left: 10vw;
     padding-right: 10vw;
     min-height: 100vh;
+    background-color: rgba($black,0.2);
+    @include md{
+        background-color: rgba($black,0.4);
+    }
+
     &__wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

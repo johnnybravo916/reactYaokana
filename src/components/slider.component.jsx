@@ -38,13 +38,13 @@ const Slider = () => {
                                 }}
                             >
                                 <Link
-                                    to={`/${content.slug}`}
+                                    to={`/projects/${content.slug}`}
                                     className="slider__title"
                                 >
                                     <h2>{parse(content.title.rendered)}</h2>
                                 </Link>
                                 <Link
-                                    to={`/${content.slug}`}
+                                    to={`/projects/${content.slug}`}
                                     className="slider__link"
                                 >
                                     click for more

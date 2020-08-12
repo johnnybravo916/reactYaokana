@@ -12,6 +12,7 @@ import MediaPage from "./pages/media";
 import ProjectsPage from "./pages/projects";
 import SinglePage from "./pages/single";
 import Contactpage from "./pages/contact";
+import NotFoundPage from './pages/notfound';
 
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./sass/main.scss";
@@ -31,11 +32,12 @@ function App({ location }) {
                         <ScrollTop/>
                         <Switch location={location}>
                             <Route exact path="/" component={Homepage} />
-                            <Route path="/about" component={AboutPage} />
-                            <Route path="/media" component={MediaPage} />
-                            <Route path="/projects" component={ProjectsPage} />
-                            <Route path="/contact" component={Contactpage} />
-                            <Route path="/:slug" component={SinglePage} />
+                            <Route exact path="/about" component={AboutPage} />
+                            <Route exact path="/media" component={MediaPage} />
+                            <Route exact path="/projects" component={ProjectsPage} />
+                            <Route exact path="/projects/:slug" component={SinglePage} />
+                            <Route exact path="/contact" component={Contactpage} />
+                            <Route component={NotFoundPage} />
                         </Switch>
                     </div>
                 </CSSTransition>
